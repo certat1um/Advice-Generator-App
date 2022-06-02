@@ -1,0 +1,22 @@
+{
+  "name": "advice-generator-app",
+  "version": "1.0.0",
+  "description": "![Design preview for the Advice generator app coding challenge](./design/desktop-preview.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spellwalker-it/Advice-Generator-App.git"
+  },
+  "author": "Ivan Kononenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spellwalker-it/Advice-Generator-App/issues"
+  },
+  "homepage": "https://github.com/spellwalker-it/Advice-Generator-App#readme",
+  "devDependencies": {
+    "parcel": "^2.6.0"
+  }
+}

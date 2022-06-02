@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --light-cyan: #cee3e9;
+  --neon-green: #52ffa8;
+  --grayish-blue: #4e5d73;
+  --dark-grayish-blue: #323a49;
+  --dark-blue: #1f2632;
+  font-family: Manrope, Arial, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--dark-blue);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.card {
+  background: var(--dark-grayish-blue);
+  max-width: 500px;
+  text-align: center;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  display: flex;
+  position: relative;
+}
+
+.card img {
+  max-width: 100%;
+  display: block;
+}
+
+.quote-heading {
+  color: var(--neon-green);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  font-size: .8rem;
+}
+
+.quote-text {
+  color: var(--light-cyan);
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+}
+
+.qoute-playbtn {
+  margin-bottom: 25px;
+  transition: opacity .3s ease-in-out;
+}
+
+.qoute-playbtn.stop {
+  opacity: .3;
+}
+
+.qoute-playbtn, .qoute-nextbtn {
+  cursor: pointer;
+}
+
+.qoute-nextbtn {
+  background: var(--neon-green);
+  border: none;
+  border-radius: 50px;
+  padding: 13px;
+  transition: box-shadow .2s ease-in-out;
+  position: absolute;
+  bottom: -20px;
+}
+
+.qoute-nextbtn:hover {
+  box-shadow: 0px 0px 20px var(--neon-green);
+}
+
+.qoute-nextbtn img {
+  max-width: 100%;
+  height: 20px;
+}
+
+/*# sourceMappingURL=index.af20ad6e.css.map */
