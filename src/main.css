@@ -62,7 +62,7 @@ body {
     transition: opacity .3s ease-in-out;
 }
 
-.quote-playbtn.status {
+.quote-playbtn.nonstop {
     opacity: .3;
 }
 

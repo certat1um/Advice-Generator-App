@@ -128,7 +128,6 @@ exports.handlerId = handlerId;
 function handlerId(id) {
   id = String(id);
   id.length == 1 ? id = "00".concat(id) : id.length == 2 ? id = "0".concat(id) : id = id;
-  console.log(id, id.length);
   return id;
 }
 },{}],"src/app.js":[function(require,module,exports) {
@@ -145,14 +144,33 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var nextBtn = document.querySelector('.quote-nextbtn');
+var playBtn = document.querySelector('.quote-playbtn');
 var outText = document.querySelector('.quote-text');
 var outHeading = document.querySelector('.quote-heading');
+var intervId;
 nextBtn.addEventListener('click', getData);
 nextBtn.addEventListener('keydown', handleKey);
+playBtn.addEventListener('click', playAdvice);
 
 function handleKey(e) {
   if (e.key === 'Enter') {
     getAdvice();
+  }
+}
+
+function playAdvice() {
+  // check if already an interval has been set up
+  if (!intervId) {
+    intervId = setInterval(getData, 5000);
+  }
+
+  if (playBtn.classList.contains('nonstop')) {
+    playBtn.classList.remove('nonstop');
+    clearInterval(intervId); // release the intervalID from the variable
+
+    intervId = null;
+  } else {
+    playBtn.classList.add('nonstop');
   }
 }
 
@@ -189,10 +207,29 @@ function _getAdvice() {
 }
 
 function getData() {
-  getAdvice().then(function (data) {
-    outHeading.innerText = "Advice #".concat((0, _handlerId.handlerId)(data.slip.id));
-    outText.innerText = "\"".concat(data.slip.advice, "\"");
-  });
+  return _getData.apply(this, arguments);
+}
+
+function _getData() {
+  _getData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return getAdvice().then(function (data) {
+              outHeading.innerText = "Advice #".concat((0, _handlerId.handlerId)(data.slip.id));
+              outText.innerText = "\"".concat(data.slip.advice, "\"");
+            });
+
+          case 2:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _getData.apply(this, arguments);
 }
 },{"./modules/handler-id":"src/modules/handler-id.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -222,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53654" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59797" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
